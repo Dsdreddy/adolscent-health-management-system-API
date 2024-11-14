@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guardian Login - HealthHub</title>
+    <style>
+       /* General Body Style */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #181818; /* Dark background */
+    color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Login Box Style */
+.login-box {
+    background-color: #1f1f1f; /* Dark gray for the form background */
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.5s forwards;
+}
+
+/* Heading Style */
+.login-box h2 {
+    color: #3498db; /* Light blue color */
+    font-size: 24px;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Input Group Styles */
+.input-group {
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 14px;
+    color: #bbbbbb;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #333;
+    border-radius: 25px;
+    background-color: #2e2e2e; /* Darker input background */
+    color: #f0f0f0;
+    text-align: center;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #3498db; /* Light blue focus */
+    outline: none;
+}
+
+/* Button Style */
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #3498db; /* Light blue button color */
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+.btn:active {
+    background-color: #2471a3; /* Even darker blue on click */
+}
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Guardian Login</h2>
+        <p>Enter your username and guardian password to proceed.</p>
+        
+        <form action="{{ url_for('guardian_login') }}" method="post">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group">
+                <label for="guardian_password">Guardian Password</label>
+                <input type="text" id="guardian" name="guardian" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
+</body>
+</html>
